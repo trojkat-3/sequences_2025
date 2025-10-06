@@ -1,4 +1,5 @@
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
 
@@ -15,6 +16,14 @@ public class Main {
     }
 
     public static void main(String[] args) {
+
+        try {
+            FileWriter fileWriter = new FileWriter("output/integers.txt");
+            fileWriter.write("Hello!");
+            fileWriter.close();
+        } catch (IOException ex) {
+            System.out.println("Something wrong with file: "+ex.getMessage());
+        }
         int maxNoDigits = getNumberOfDigits(MAX);
         for (int i = 1; i <= MAX; i++) {
             for (int j = 0; j < maxNoDigits - getNumberOfDigits(i); j++) {
