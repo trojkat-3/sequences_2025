@@ -3,8 +3,9 @@ import java.io.IOException;
 
 public class Main {
 
-    static final int MAX = 2000;
-    static final int MAX_IN_LINE = 20;
+    static final int MAX = 800;
+    static final int MAX_IN_LINE = 15;
+    static final boolean WRITE_TO_FILE = false;
 
     static int getNumberOfDigits(int n) {
         int nd = 0;
@@ -16,26 +17,28 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
-        try {
-            FileWriter fileWriter = new FileWriter("output/integers.txt");
-            fileWriter.write("Hello!");
-            fileWriter.close();
-        } catch (IOException ex) {
-            System.out.println("Something wrong with file: "+ex.getMessage());
-        }
-        int maxNoDigits = getNumberOfDigits(MAX);
-        for (int i = 1; i <= MAX; i++) {
-            for (int j = 0; j < maxNoDigits - getNumberOfDigits(i); j++) {
-                System.out.print(" ");
+        String out = "";
+            int maxNoDigits = getNumberOfDigits(MAX);
+            for (int i = 1; i <= MAX; i++) {
+                for (int j = 0; j < maxNoDigits - getNumberOfDigits(i); j++) {
+                    out += " ";
+                }
+                out += Integer.toString(i);
+                if (i < MAX) {
+                    out += ", ";
+                }
+                if (i % MAX_IN_LINE == 0) {
+                    out += "\n";
+                }
             }
-            System.out.print(i);
-            if (i < MAX) {
-                System.out.print(", ");
+            if (WRITE_TO_FILE){
+                try (FileWriter fr = new FileWriter("output/integers.txt");) {
+                    fr.write(out);
+                } catch (IOException ex) {
+                    System.out.println("Something wrong with file: " + ex.getMessage());
+                }
+            } else {
+                System.out.println(out);
             }
-            if (i % MAX_IN_LINE == 0) {
-                System.out.print("\n");
-            }
-        }
     }
 }
