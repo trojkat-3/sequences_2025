@@ -5,11 +5,21 @@ import java.util.Collections;
 
 public class IntegerPrinter {
 
-    static final int MAX_IN_LINE = 15;
-    boolean writeToFile;
+    private final int MAX_IN_LINE = 15;
+    private String fName;
+    //boolean writeToFile;
 
-    public IntegerPrinter(Boolean writeToFile){
-        this.writeToFile=writeToFile;
+    public IntegerPrinter() {
+        fName = null;
+    }
+
+    public IntegerPrinter(String fileName) {
+        this.fName = fileName;
+        try (FileWriter fr = new FileWriter("output/" + fName);) {
+            fr.write("");
+        } catch (IOException ex) {
+            System.out.println("Something wrong with file: " + ex.getMessage());
+        }
     }
 
     int getNumberOfDigits(int n) {
@@ -21,7 +31,7 @@ public class IntegerPrinter {
         return nd;
     }
 
-    void printIntegers(ArrayList<Integer> list){
+    void printIntegers(ArrayList<Integer> list) {
         String out = "";
         int maxNoDigits = getNumberOfDigits(Collections.max(list));
         for (int i = 0; i < list.size(); i++) {
@@ -34,10 +44,11 @@ public class IntegerPrinter {
                 out += "\n";
             }
         }
-        out=out.stripTrailing();
-        out=out.substring(0,out.length()-1);
-        if (writeToFile) {
-            try (FileWriter fr = new FileWriter("output/integers.txt");) {
+        out = out.stripTrailing();
+        out = out.substring(0, out.length() - 1);
+        out += "\n";
+        if (fName != null) {
+            try (FileWriter fr = new FileWriter("output/" + fName, true);) {
                 fr.write(out);
             } catch (IOException ex) {
                 System.out.println("Something wrong with file: " + ex.getMessage());
