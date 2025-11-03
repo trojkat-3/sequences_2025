@@ -22,7 +22,7 @@ public class IntegerPrinter {
         }
     }
 
-    int getNumberOfDigits(int n) {
+    private int getNumberOfDigits(int n) {
         int nd = 0;
         while (n > 0) {
             nd++;
@@ -31,8 +31,8 @@ public class IntegerPrinter {
         return nd;
     }
 
-    void printIntegers(ArrayList<Integer> list) {
-        String out = "";
+    void print(ArrayList<Integer> list, String header) {
+        String out = "---- "+header+ " ----\n";
         int maxNoDigits = getNumberOfDigits(Collections.max(list));
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < maxNoDigits - getNumberOfDigits(list.get(i)); j++) {
