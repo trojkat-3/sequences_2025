@@ -1,3 +1,5 @@
+import sequences.Sequence;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,8 +33,9 @@ public class IntegerPrinter {
         return nd;
     }
 
-    void print(ArrayList<Integer> list, String header) {
-        String out = "---- "+header+ " ----\n";
+    void print(Sequence sq) {
+        String out = "---- "+sq.getName()+ " ----\n";
+        ArrayList<Integer> list=sq.getSequence();
         int maxNoDigits = getNumberOfDigits(Collections.max(list));
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < maxNoDigits - getNumberOfDigits(list.get(i)); j++) {
