@@ -23,6 +23,10 @@ public class Main {
         sq=new Fibonacci();
         printerStdOut.print(sq);
         printerFile.print(sq);
+        //Fibonacci numbers starting with (-3,2)
+        sq=new Fibonacci(1,5);
+        printerStdOut.print(sq);
+        printerFile.print(sq);
         // arithmetic & geometric sequences .....
     }
 }

@@ -3,9 +3,16 @@ package sequences;
 import java.util.ArrayList;
 
 public class Fibonacci extends Sequence {
+    private int[] initialVal= new int[2];
 
     public Fibonacci(){
-        super("Fibonacci");
+        this(0,1);
+    }
+
+    public Fibonacci(int f0, int f1){
+        super("Fibonacci (f0="+f0+", f1="+f1+")");
+        initialVal[0]=f0;
+        initialVal[1]=f1;
         initializeSequence();
     }
 
@@ -24,7 +31,7 @@ public class Fibonacci extends Sequence {
             return fib.get(n);
         }
         if (n <= 1) {
-            return n;
+            return initialVal[n];
         } else {
             return fibonacci(n - 1,fib) + fibonacci(n - 2,fib);
         }
