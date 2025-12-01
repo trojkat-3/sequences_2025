@@ -10,7 +10,7 @@ public class Primes extends Sequence {
     @Override
     void initializeSequence() {
         int p = 1;
-        while (p <= MAX) {
+        while (p <= max) {
             if (isPrime(p)) {
                 sequence.add(p);
             }

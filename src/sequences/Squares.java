@@ -9,7 +9,7 @@ public class Squares extends Sequence {
 
     @Override
     void initializeSequence() {
-        for (int i = 1; i * i <= MAX; i++) {
+        for (int i = 1; i * i <= max; i++) {
             sequence.add(i * i);
         }
     }
