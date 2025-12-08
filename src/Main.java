@@ -27,9 +27,9 @@ public class Main {
         //printerStdOut.print(sq);
         printerFile.print(sq);
         try {
+            System.out.println(sq.decompose(500));
             System.out.println(sq.sum(3000));
             System.out.println(sq.decompose(206));
-            System.out.println(sq.decompose(500));
         } catch (OutOfBoundsException | CantDecomposeException ex) {
             System.out.println(ex.getMessage());
         }
@@ -43,6 +43,14 @@ public class Main {
         sq.setMax(10000);
         //printerStdOut.print(sq);
         printerFile.print(sq);
-        // arithmetic & geometric sequences .....
+        // Arithmetic sequence
+        sq = new Arithmetic(3, 5);
+        printerFile.print(sq);
+        try {
+            System.out.println(sq.sum(3));
+        } catch (OutOfBoundsException ex) {
+            System.out.println(ex.getMessage());
+        }
+        //TODO: arithmetic & geometric sequences .....
     }
 }
