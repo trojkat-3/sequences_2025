@@ -1,14 +1,16 @@
+import Printers.Printer;
+import Printers.PrinterFile;
+import Printers.PrinterStdOut;
 import exceptions.CantDecomposeException;
 import exceptions.OutOfBoundsException;
 import sequences.*;
 
-import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-        IntegerPrinter printerFile = new IntegerPrinter("sequences.txt");
-        IntegerPrinter printerStdOut = new IntegerPrinter();
+        Printer printerFile = new PrinterFile("sequences.txt");
+        Printer printerStdOut = new PrinterStdOut();
         //Integers
         Sequence sq = new Integers();
         //printerStdOut.print(sq);
@@ -43,7 +45,7 @@ public class Main {
         sq.setMax(10000);
         //printerStdOut.print(sq);
         printerFile.print(sq);
-        // Arithmetic sequence
+        // Arithmetic Sequence
         sq = new Arithmetic(3, 5);
         printerFile.print(sq);
         try {
