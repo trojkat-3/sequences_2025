@@ -62,4 +62,9 @@ abstract public class Sequence {
         }
         return ret;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

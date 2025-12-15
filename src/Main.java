@@ -3,12 +3,16 @@ import Printers.PrinterFile;
 import Printers.PrinterStdOut;
 import exceptions.CantDecomposeException;
 import exceptions.OutOfBoundsException;
+import gui.MainFrame;
 import sequences.*;
 
 
 public class Main {
 
     public static void main(String[] args) {
+        MainFrame mainFrame=new MainFrame();
+        mainFrame.setVisible(true);
+
         Printer printerFile = new PrinterFile("sequences.txt");
         Printer printerStdOut = new PrinterStdOut();
         //Integers
