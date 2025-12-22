@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.MainFrame">
   <grid id="27dc6" binding="outerPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="512" height="407"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -51,7 +51,7 @@
                   <text value="Change upper limit:"/>
                 </properties>
               </component>
-              <component id="cf0fb" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+              <component id="cf0fb" class="javax.swing.JTextField" binding="setMaxTextField">
                 <constraints/>
                 <properties/>
               </component>
@@ -70,9 +70,10 @@
                   <text value="Upper limit:"/>
                 </properties>
               </component>
-              <component id="daf48" class="javax.swing.JLabel">
+              <component id="daf48" class="javax.swing.JLabel" binding="maxLabel">
                 <constraints/>
                 <properties>
+                  <font style="1"/>
                   <text value="Label"/>
                 </properties>
               </component>
@@ -101,6 +102,64 @@
             <constraints/>
             <properties>
               <text value="Credits"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <scrollpane id="94433">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="e864" class="javax.swing.JTextArea" binding="sequenceTextArea">
+            <constraints/>
+            <properties>
+              <font name="Monospaced"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <grid id="fbafb" binding="utilsPanel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints border-constraint="East"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="f8906" class="javax.swing.JButton" binding="showElementsButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Show elements"/>
+            </properties>
+          </component>
+          <vspacer id="84476">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="cd01f" class="javax.swing.JButton" binding="saveToFileButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Save to file"/>
+            </properties>
+          </component>
+          <component id="de09c" class="javax.swing.JButton" binding="decomposeButton" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Decompose"/>
+            </properties>
+          </component>
+          <component id="17058" class="javax.swing.JButton" binding="sumButton" default-binding="true">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Sum"/>
             </properties>
           </component>
         </children>

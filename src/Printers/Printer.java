@@ -18,7 +18,7 @@ abstract public class Printer {
         return nd;
     }
 
-    public void print(Sequence sq) {
+    public String print(Sequence sq) {
         String out = "---- " + sq.getName() + " ----\n";
         ArrayList<Integer> list = sq.getSequence();
         int maxNoDigits = getNumberOfDigits(Collections.max(list));
@@ -36,6 +36,7 @@ abstract public class Printer {
         out = out.substring(0, out.length() - 1);
         out += "\n";
         output(out);
+        return out;
     }
 
     protected abstract void output(String str);

@@ -13,7 +13,7 @@ public class Main {
         MainFrame mainFrame=new MainFrame();
         mainFrame.setVisible(true);
 
-        Printer printerFile = new PrinterFile("sequences.txt");
+/*        Printer printerFile = new PrinterFile("sequences.txt");
         Printer printerStdOut = new PrinterStdOut();
         //Integers
         Sequence sq = new Integers();
@@ -57,6 +57,6 @@ public class Main {
         } catch (OutOfBoundsException ex) {
             System.out.println(ex.getMessage());
         }
-        //TODO: arithmetic & geometric sequences .....
+        //TODO: arithmetic & geometric sequences .....*/
     }
 }

@@ -22,6 +22,10 @@ abstract public class Sequence {
         initializeSequence();
     }
 
+    public int getMax() {
+        return max;
+    }
+
     abstract void initializeSequence();
 
     public String getName() {
