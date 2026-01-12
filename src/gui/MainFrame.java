@@ -5,6 +5,7 @@ import Printers.PrinterDummy;
 import sequences.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -25,6 +26,9 @@ public class MainFrame extends JFrame {
     private JButton saveToFileButton;
     private JButton decomposeButton;
     private JButton sumButton;
+    private JLabel sequenceLabel;
+    private JLabel changeLimitLabel;
+    private JLabel upperLimitLabel;
 
     private final Printer printer = new PrinterDummy();
     private Sequence sq = null;
@@ -36,11 +40,13 @@ public class MainFrame extends JFrame {
         this.setSize(800, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initLook();
+        lockSequence(false);
         // -- Actions
         quitButton.addActionListener(quitAction);
         creditsButton.addActionListener(this::creditsAction);
         selectButton.addActionListener(this::selectAction);
         changeButton.addActionListener(this::changeMaxAction);
+        resetButton.addActionListener(this::resetAction);
     }
 
     private void initLook() {
@@ -57,13 +63,53 @@ public class MainFrame extends JFrame {
         );
     }
 
+    /**
+     * @param lock - true if the sequence is selected
+     */
+    private void lockSequence(boolean lock) {
+        // elements enabled if the sequence is selected
+//        showElementsButton.setEnabled(lock);
+//        saveToFileButton.setEnabled(lock);
+//        decomposeButton.setEnabled(lock);
+//        sumButton.setEnabled(lock);
+
+        for (Component c : utilsPanel.getComponents()) {
+            c.setEnabled(lock);
+        }
+        JComponent[] lst1 = {
+                setMaxTextField,
+                changeButton,
+                maxLabel,
+                changeLimitLabel,
+                upperLimitLabel,
+                resetButton
+        };
+        for (JComponent c : lst1) {
+            c.setEnabled(lock);
+        }
+
+        // sequence selection elements
+        JComponent[] lst2 = {
+                selectButton,
+                sequencesComboBox,
+                sequenceLabel
+        };
+        for (JComponent c : lst2) {
+            c.setEnabled(!lock);
+        }
+
+//        selectButton.setEnabled(!lock);
+//        sequencesComboBox.setEnabled(!lock);
+//        sequenceLabel.setEnabled(!lock);
+    }
+
     private void updateMaxInfo() {
         String str = (sq == null ? "---" : Integer.toString(sq.getMax()));
         maxLabel.setText(str);
     }
 
     private void updateSequenceTextArea() {
-        sequenceTextArea.setText(printer.print(sq));
+        sequenceTextArea.setText(sq == null ? "" : printer.print(sq));
     }
 
     private void showError(String msg) {
@@ -71,6 +117,13 @@ public class MainFrame extends JFrame {
     }
 
     // ---------- Actions -------------//
+
+    private void resetAction(ActionEvent e) {
+        lockSequence(false);
+        sq = null;
+        updateSequenceTextArea();
+    }
+
 
     private void changeMaxAction(ActionEvent e) {
         String maxStr = setMaxTextField.getText().trim();
@@ -88,6 +141,7 @@ public class MainFrame extends JFrame {
         sq = (Sequence) sequencesComboBox.getSelectedItem();
         updateSequenceTextArea();
         updateMaxInfo();
+        lockSequence(true);
     }
 
     private void creditsAction(ActionEvent e) {

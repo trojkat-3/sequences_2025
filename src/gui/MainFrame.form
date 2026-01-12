@@ -20,7 +20,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="df7b7" class="javax.swing.JLabel">
+              <component id="df7b7" class="javax.swing.JLabel" binding="sequenceLabel">
                 <constraints/>
                 <properties>
                   <text value="Please select sequence:"/>
@@ -45,7 +45,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="44e84" class="javax.swing.JLabel">
+              <component id="44e84" class="javax.swing.JLabel" binding="changeLimitLabel">
                 <constraints/>
                 <properties>
                   <text value="Change upper limit:"/>
@@ -64,7 +64,7 @@
               <hspacer id="f6660">
                 <constraints/>
               </hspacer>
-              <component id="b8f34" class="javax.swing.JLabel">
+              <component id="b8f34" class="javax.swing.JLabel" binding="upperLimitLabel">
                 <constraints/>
                 <properties>
                   <text value="Upper limit:"/>
