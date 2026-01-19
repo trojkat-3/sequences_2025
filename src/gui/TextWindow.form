@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.TextWindow">
+  <grid id="cbd77" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="48" y="54" width="436" height="297"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <scrollpane id="216a3">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="41a1e" class="javax.swing.JTextArea" binding="textArea">
+            <constraints/>
+            <properties>
+              <font name="Monospaced"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <grid id="cc7d9" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="d4184" class="javax.swing.JButton" binding="closeButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Close"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

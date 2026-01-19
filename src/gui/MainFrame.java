@@ -47,6 +47,7 @@ public class MainFrame extends JFrame {
         selectButton.addActionListener(this::selectAction);
         changeButton.addActionListener(this::changeMaxAction);
         resetButton.addActionListener(this::resetAction);
+        showElementsButton.addActionListener(this::showElementsAction);
     }
 
     private void initLook() {
@@ -117,6 +118,11 @@ public class MainFrame extends JFrame {
     }
 
     // ---------- Actions -------------//
+
+    private void showElementsAction(ActionEvent e){
+        TextWindow dialog=new TextWindow("Sequence elements", printer.print(sq));
+        dialog.setVisible(true);
+    }
 
     private void resetAction(ActionEvent e) {
         lockSequence(false);
