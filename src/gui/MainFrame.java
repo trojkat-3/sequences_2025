@@ -2,6 +2,7 @@ package gui;
 
 import Printers.Printer;
 import Printers.PrinterDummy;
+import exceptions.CantDecomposeException;
 import sequences.*;
 
 import javax.swing.*;
@@ -48,6 +49,13 @@ public class MainFrame extends JFrame {
         changeButton.addActionListener(this::changeMaxAction);
         resetButton.addActionListener(this::resetAction);
         showElementsButton.addActionListener(this::showElementsAction);
+        decomposeButton.addActionListener(this::decomposeAction);
+        sumButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
     private void initLook() {
@@ -104,6 +112,17 @@ public class MainFrame extends JFrame {
 //        sequenceLabel.setEnabled(!lock);
     }
 
+    private Integer getIntFromUser(String info) {
+        String str = JOptionPane.showInputDialog(this, info,
+                "Input value", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException ex){
+            showError("String \""+str+"\" can't be converted to int.");
+            return null;
+        }
+    }
+
     private void updateMaxInfo() {
         String str = (sq == null ? "---" : Integer.toString(sq.getMax()));
         maxLabel.setText(str);
@@ -119,8 +138,21 @@ public class MainFrame extends JFrame {
 
     // ---------- Actions -------------//
 
-    private void showElementsAction(ActionEvent e){
-        TextWindow dialog=new TextWindow("Sequence elements", printer.print(sq));
+    private void decomposeAction(ActionEvent e) {
+        Integer n=getIntFromUser("Please provide a number to decompose");
+        if (n!=null){
+            try {
+                TextWindow dialog=new TextWindow("Decomposition",
+                        printer.printDecomposition(n,sq.decompose(n)));
+                dialog.setVisible(true);
+            } catch (CantDecomposeException ex){
+                showError("Can't decompose: "+n);
+            }
+        }
+    }
+
+    private void showElementsAction(ActionEvent e) {
+        TextWindow dialog = new TextWindow("Sequence elements", printer.print(sq));
         dialog.setVisible(true);
     }
 

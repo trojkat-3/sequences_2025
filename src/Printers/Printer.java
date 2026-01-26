@@ -39,6 +39,16 @@ abstract public class Printer {
         return out;
     }
 
+    public String printDecomposition(int n, ArrayList<Integer> list){
+        String str=n+"=";
+        for (int a: list){
+            str+=a+"+";
+        }
+        str=str.substring(0,str.length()-1);
+        output(str);
+        return str;
+    }
+
     protected abstract void output(String str);
 
 }
